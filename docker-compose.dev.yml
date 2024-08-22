@@ -20,13 +20,13 @@ services:
   desafio-app:
     container_name: desafio-app
     build:
-      context: .
-      dockerfile: node/Dockerfile.dev
+      context: ./node
+      dockerfile: Dockerfile.dev
     restart: unless-stopped
     tty: true
+    entrypoint: sh -c "dockerize -wait tcp://desafio-database:3306 -timeout 20s && cd /app && yarn && yarn run dev"
     volumes:
       - ./node:/app
-    command: sh -c "dockerize -wait tcp://desafio-database:3306 -timeout 20s && node /app/index.js"
     ports:
       - '3000:3000'
     depends_on:
