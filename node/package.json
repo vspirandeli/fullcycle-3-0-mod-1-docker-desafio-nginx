@@ -4,10 +4,16 @@
   "main": "index.js",
   "author": "Victor Spirandeli",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
   "dependencies": {
     "axios": "^1.7.4",
     "express": "^4.19.2",
     "mysql": "^2.18.1",
     "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }
